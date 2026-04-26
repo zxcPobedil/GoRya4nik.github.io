@@ -1,0 +1,553 @@
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>горячник спермоглот
+</title>
+        <!-- Google Fonts + Font Awesome 6 -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: linear-gradient(135deg, #10141c 0%, #1a1f2b 100%);
+                font-family: 'Inter', sans-serif;
+                min-height: 100vh;
+                padding: 2rem 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* главная карточка */
+            .main-container {
+                max-width: 1500px;
+                width: 100%;
+                background: rgba(22, 26, 35, 0.85);
+                backdrop-filter: blur(12px);
+                border-radius: 2rem;
+                box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(255,255,255,0.05);
+                padding: 2rem;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            /* три колонки вдоль */
+            .columns-wrapper {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 1.8rem;
+                justify-content: center;
+                align-items: stretch;
+            }
+
+            /* левая и центральная колонки */
+            .col {
+                flex: 1;
+                min-width: 0;
+                background: rgba(15, 19, 26, 0.7);
+                border-radius: 1.5rem;
+                padding: 1.2rem 1.2rem 1.5rem;
+                backdrop-filter: blur(4px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            /* правая колонка (сайты) */
+            .col-sites {
+                flex: 1.2;
+                min-width: 0;
+                background: rgba(15, 19, 26, 0.7);
+                border-radius: 1.5rem;
+                padding: 1.2rem 1.2rem 1.5rem;
+                backdrop-filter: blur(4px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            /* заголовки колонок */
+            .col h3, .col-sites h3 {
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin-bottom: 1.2rem;
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                color: #eef2ff;
+                border-left: 3px solid #3b82f6;
+                padding-left: 0.8rem;
+                letter-spacing: -0.2px;
+            }
+
+            .col h3 i, .col-sites h3 i {
+                color: #60a5fa;
+                font-size: 1.2rem;
+            }
+
+            /* список ссылок для левой колонки */
+            .link-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.85rem;
+            }
+
+            .link-item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                background: rgba(30, 35, 48, 0.8);
+                padding: 0.8rem 1rem;
+                border-radius: 1.2rem;
+                text-decoration: none;
+                color: #e2e8f0;
+                font-weight: 600;
+                transition: all 0.2s ease;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .link-item:hover {
+                transform: translateX(6px);
+                border-color: #3b82f6;
+                background: #1e2a3e;
+                box-shadow: 0 8px 18px -8px rgba(0,0,0,0.4);
+                color: white;
+            }
+
+            .link-icon {
+                width: 42px;
+                height: 42px;
+                background: rgba(0, 0, 0, 0.35);
+                border-radius: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.3rem;
+                transition: 0.2s;
+                color: #94a3b8;
+            }
+
+            .link-item:hover .link-icon {
+                background: #2d3a4e;
+                color: white;
+            }
+
+            .link-item span:last-of-type {
+                flex: 1;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            /* контейнер для моих ссылок */
+            .my-links-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            /* разделитель с КРУГЛОЙ рамкой для картинки */
+            .divider-image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 1rem 0;
+            }
+            .rounded-image {
+                width: 300px;
+                height: 120px;
+                border-radius: 1%;
+                object-fit: cover;
+                border: 3px solid #9193f5;
+                box-shadow: 0 0 12px rgba(72, 69, 248, 0.4);  
+                transition: all 0.25s ease;
+                background: #1e2a3e;
+            }
+            .rounded-image:hover {
+                transform: scale(1.05);
+                border-color: #a19ac7;
+                box-shadow: 0 0 18px rgba(87, 46, 235, 0.6);
+            }
+
+            /* кнопки в центральной колонке (мои ссылки) — УВЕЛИЧЕНЫ */
+            .action-btn {
+                background: #1f2a3e;
+                border: none;
+                padding: 1rem 1.2rem;
+                border-radius: 2rem;
+                font-weight: 700;
+                font-size: 1rem;
+                font-family: 'Inter', sans-serif;
+                color: #f0f4fa;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.8rem;
+                cursor: pointer;
+                transition: 0.2s;
+                box-shadow: 0 5px 0 #0b0f17;
+                transform: translateY(-2px);
+                border: 1px solid rgba(255,255,255,0.08);
+                width: 100%;
+            }
+
+            .action-btn:active {
+                transform: translateY(2px);
+                box-shadow: 0 1px 0 #0b0f17;
+            }
+
+            .action-btn.stream-btn {
+                background: linear-gradient(135deg, #1b2838, #171a21);
+                box-shadow: 0 5px 0 #0f1117;
+                border: 1px solid #2c3e4e;
+            }
+
+            .action-btn.stream-btn i {
+                color: #66c0f4;
+            }
+
+            .action-btn.stream-btn:hover {
+                background: linear-gradient(135deg, #2a3a4a, #1f2833);
+            }
+
+            .action-btn.tg-copy {
+                background: #2A6B8F;
+                box-shadow: 0 5px 0 #1a445d;
+            }
+
+            .action-btn.tg-copy:hover {
+                background: #3486b0;
+            }
+
+            .action-btn:first-child {
+                background: #2c3e50;
+            }
+
+            .action-btn:first-child:hover {
+                background: #3b5a78;
+            }
+
+            /* сетка сайтов (динамическая, подстраивается под количество) */
+            .sites-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.9rem;
+            }
+
+            .site-card {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                background: rgba(30, 35, 48, 0.8);
+                padding: 0.7rem 0.9rem;
+                border-radius: 1rem;
+                text-decoration: none;
+                color: #e2e8f0;
+                font-weight: 600;
+                transition: all 0.2s ease;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .site-card:hover {
+                transform: translateY(-2px);
+                border-color: #3b82f6;
+                background: #1e2a3e;
+                box-shadow: 0 6px 12px -6px rgba(0,0,0,0.4);
+                color: white;
+            }
+
+            .site-icon {
+                width: 36px;
+                height: 36px;
+                background: rgba(0, 0, 0, 0.35);
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.1rem;
+                color: #94a3b8;
+            }
+
+            .site-card:hover .site-icon {
+                background: #2d3a4e;
+                color: white;
+            }
+
+            .site-card span {
+                font-size: 0.9rem;
+                font-weight: 600;
+                flex: 1;
+            }
+
+            /* стиль для заглушек (будущие ссылки) */
+            .site-card.future-link {
+                opacity: 0.7;
+                cursor: default;
+                pointer-events: none;
+                filter: grayscale(0.2);
+            }
+            .site-card.future-link:hover {
+                transform: none;
+                border-color: rgba(255,255,255,0.05);
+                background: rgba(30,35,48,0.8);
+            }
+
+            /* уведомление */
+            .copy-toast {
+                position: fixed;
+                bottom: 25px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #1f2937;
+                color: white;
+                padding: 0.8rem 1.6rem;
+                border-radius: 60px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.2s;
+                pointer-events: none;
+                backdrop-filter: blur(12px);
+                background: #111827e6;
+                border: 1px solid #3b82f670;
+            }
+
+            /* адаптив */
+            @media (max-width: 950px) {
+                .columns-wrapper {
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                }
+                .col, .col-sites {
+                    width: 100%;
+                }
+                .main-container {
+                    padding: 1.2rem;
+                }
+                .sites-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 480px) {
+                .sites-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* hover цвета для сайтов */
+            .site-card[data-brand="liss"]:hover .site-icon { color: #5fcb7d; }
+            .site-card[data-brand="zhabka"]:hover .site-icon { color: #8bc34a; }
+            .site-card[data-brand="casebattle"]:hover .site-icon { color: #ffb347; }
+            .site-card[data-brand="skinhouse"]:hover .site-icon { color: #9b87f5; }
+            .site-card[data-brand="bulldrop"]:hover .site-icon { color: #ff8c5a; }
+            .site-card[data-brand="skinbro"]:hover .site-icon { color: #4db8ff; }
+            .site-card[data-brand="pitukh"]:hover .site-icon { color: #f472b6; }
+            .site-card[data-brand="csfail"]:hover .site-icon { color: #ef4444; }
+            .site-card[data-brand="dinodrop"]:hover .site-icon { color: #facc15; }
+            
+            .link-item[data-brand="vk"]:hover .link-icon { color: #4c8eff; }
+            .link-item[data-brand="tg"]:hover .link-icon { color: #2fade7; }
+            .link-item[data-brand="twitch"]:hover .link-icon { color: #b86bff; }
+            .link-item[data-brand="yt"]:hover .link-icon { color: #ff4f4f; }
+        </style>
+    </head>
+    <body>
+    <div class="main-container">
+        <div class="columns-wrapper">
+            <!-- КОЛОНКА 1: Соцсети -->
+            <div class="col">
+                <h3><i class="fab fa-telegram"></i> Соцсети </h3>
+                <div class="link-list">
+                    <a href="https://web.telegram.org" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="tg">
+                        <div class="link-icon"><i class="fab fa-telegram-plane"></i></div>
+                        <span>Telegram</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://vk.com" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="vk">
+                        <div class="link-icon"><i class="fab fa-vk"></i></div>
+                        <span>ВКонтакте</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://twitch.tv" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="twitch">
+                        <div class="link-icon"><i class="fab fa-twitch"></i></div>
+                        <span>Twitch</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://youtube.com" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="yt">
+                        <div class="link-icon"><i class="fab fa-youtube"></i></div>
+                        <span>YouTube</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 2: Мои ссылки (кнопки + круглая картинка-разделитель) -->
+            <div class="col">
+                <h3><i class="fas fa-link"></i> Мои ссылки</h3>
+
+                <!-- ОТСТУП С КРУГЛОЙ КАРТИНКОЙ -->
+                <div class="divider-image">
+                    <img src="https://media.tenor.com/sDBNEe2njQ8AAAAM/optimus-prime-forest-battle.gif" alt="avatar" class="rounded-image"
+                        onerror="this.onerror=null; this.src='https://placehold.co/200x200/2c3e50/60a5fa?text=★+LOGO+★';">
+                </div>
+
+                <div class="my-links-container">
+                    <!-- Кнопка "Трейд ссылка" -->
+                    <button class="action-btn" id="tradeCopyBtn">
+                        <i class="fas fa-exchange-alt"></i> Трейд ссылка
+                    </button>
+
+                    <!-- Кнопка "Стим" -->
+                    <a href="https://steamcommunity.com/profiles/76561199245492834" target="_blank" rel="noopener noreferrer" class="action-btn stream-btn" style="text-decoration: none;">
+                        <i class="fab fa-steam"></i> Стим
+                    </a>
+                    
+                    <!-- Кнопка "ТГ (копировать)" -->
+                    <button class="action-btn tg-copy" id="tgNickCopyBtn">
+                        <i class="fab fa-telegram"></i> ТГ (копировать)
+                    </button>
+                    
+                    <div style="font-size: 0.7rem; text-align: center; margin-top: 8px; color:#8aa9c9;">
+                        <i>zxc_myxa_pobedil79</i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- КОЛОНКА 3: Сайты (расширенная сетка: добавлены Динодроп и 3 будущие кнопки) -->
+            <div class="col-sites">
+                <h3><i class="fas fa-globe"></i> Сайты</h3>
+                <div class="sites-grid">
+                    <!-- существующие 8 ссылок -->
+                    <a href="https://lis-skins.com/ru/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="liss">
+                        <div class="site-icon"><i class="fas fa-gem"></i></div>
+                        <span>Lisskins</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://jabka.gg/r/IdIoutqF26" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="zhabka">
+                        <div class="site-icon"><i class="fas fa-frog"></i></div>
+                        <span>Жабка скин</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://case-battle.red/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="casebattle">
+                        <div class="site-icon"><i class="fas fa-battle-net"></i></div>
+                        <span>Кейс батл</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://skinhouse.gg/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="skinhouse">
+                        <div class="site-icon"><i class="fas fa-home"></i></div>
+                        <span>Скин хаус</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://bulldrop.uz/ru" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="bulldrop">
+                        <div class="site-icon"><i class="fas fa-dice-d6"></i></div>
+                        <span>Булдроп</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://skinbro.ru/ru/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="skinbro">
+                        <div class="site-icon"><i class="fas fa-handshake"></i></div>
+                        <span>Скинбро</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://petuh.cc/nambawan" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="pitukh">
+                        <div class="site-icon"><i class="fas fa-crown"></i></div>
+                        <span>Питух клаб</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    <a href="https://10cs.fail/ru/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="csfail">
+                        <div class="site-icon"><i class="fas fa-skull"></i></div>
+                        <span>КС Фейл</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    
+                    <!-- НОВЫЙ САЙТ: Динодроп -->
+                    <a href="https://dinodrop.net/ru" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="dinodrop">
+                        <div class="site-icon"><i class="fas fa-dragon"></i></div>
+                        <span>Динодроп</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </a>
+                    
+                    <!-- 3 БУДУЩИЕ КНОПКИ (заглушки, пока неактивны, но визуально отображаются) -->
+                    <div class="site-card future-link" data-brand="future1">
+                        <div class="site-icon"><i class="fas fa-clock"></i></div>
+                        <span>Будущий сайт 1</span>
+                        <i class="fas fa-hourglass-half" style="font-size: 0.6rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="site-card future-link" data-brand="future2">
+                        <div class="site-icon"><i class="fas fa-clock"></i></div>
+                        <span>Будущий сайт 2</span>
+                        <i class="fas fa-hourglass-half" style="font-size: 0.6rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="site-card future-link" data-brand="future3">
+                        <div class="site-icon"><i class="fas fa-clock"></i></div>
+                        <span>Будущий сайт 3</span>
+                        <i class="fas fa-hourglass-half" style="font-size: 0.6rem; opacity: 0.6;"></i>
+                    </div>
+                </div>
+                <!-- небольшой пояснение про будущие кнопки -->
+                <div style="font-size: 0.65rem; text-align: center; margin-top: 12px; color:#5f7f9e;">
+                    <i class="fas fa-hourglass-half"></i> серые кнопки — скоро появятся
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastMessage" class="copy-toast">Скопировано!</div>
+
+    <script>
+        (function() {
+            const TRADE_LINK = "https://steamcommunity.com/tradeoffer/new?partner=1285227106";
+            const TG_NICK = "@Gorya4nik";
+
+            const tradeBtn = document.getElementById('tradeCopyBtn');
+            const tgNickBtn = document.getElementById('tgNickCopyBtn');
+            const toast = document.getElementById('toastMessage');
+
+            let toastTimeout = null;
+
+            function showToast(message = "Скопировано!") {
+                if (toastTimeout) clearTimeout(toastTimeout);
+                toast.textContent = message;
+                toast.style.opacity = '1';
+                toastTimeout = setTimeout(() => {
+                    toast.style.opacity = '0';
+                }, 1800);
+            }
+
+            async function copyToClipboard(text, successMsg = "Скопировано!") {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    showToast(successMsg);
+                } catch (err) {
+                    console.error("Ошибка копирования: ", err);
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    showToast(successMsg);
+                }
+            }
+
+            if (tradeBtn) {
+                tradeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    copyToClipboard(TRADE_LINK, "✅ Трейд ссылка скопирована!");
+                });
+            }
+
+            if (tgNickBtn) {
+                tgNickBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    copyToClipboard(TG_NICK, "📋 @vladprokuratyra скопирован");
+                });
+            }
+        })();
+    </script>
+    </body>
+    </html>
