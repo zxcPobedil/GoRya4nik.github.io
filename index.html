@@ -1,553 +1,813 @@
-    <!DOCTYPE html>
-    <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-        <title>горячник спермоглот
-</title>
-        <!-- Google Fonts + Font Awesome 6 -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>горячник спермоглот</title>
+
+    <!-- Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        :root {
+            --bg: #0f1722;
+            --bg-2: #131c29;
+
+            --card: rgba(19, 28, 41, 0.72);
+
+            --blue: #4da3ff;
+            --blue-hover: #77baff;
+
+            --text: #e5edf8;
+            --muted: #8ca3bf;
+
+            --border: rgba(255,255,255,.08);
+
+            --shadow:
+                0 10px 30px rgba(0,0,0,.35);
+
+            --radius: 24px;
+
+            --transition: .25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Inter", sans-serif;
+            color: var(--text);
+
+            background:
+                radial-gradient(circle at top left, #1d2d44 0%, transparent 35%),
+                radial-gradient(circle at bottom right, #11253c 0%, transparent 35%),
+                linear-gradient(135deg, #0b1119 0%, #121c29 100%);
+
+            padding: 28px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 1500px;
+
+            background: rgba(16, 23, 34, .75);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid var(--border);
+
+            border-radius: 32px;
+
+            padding: 28px;
+
+            box-shadow: var(--shadow);
+
+            animation: show .5s ease;
+        }
+
+        @keyframes show {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
             }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 320px 320px 1fr;
+            gap: 22px;
+        }
+
+        .panel {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            padding: 20px;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 22px;
+
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .panel-title i {
+            color: var(--blue);
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            text-decoration: none;
+
+            color: var(--text);
+
+            background: rgba(255,255,255,.03);
+
+            border: 1px solid rgba(255,255,255,.05);
+
+            padding: 14px 16px;
+
+            border-radius: 18px;
+
+            transition: var(--transition);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+
+            border-color: rgba(77,163,255,.4);
+
+            background: rgba(77,163,255,.08);
+
+            box-shadow: 0 10px 24px rgba(0,0,0,.25);
+        }
+
+        .icon {
+            width: 46px;
+            height: 46px;
+
+            border-radius: 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,255,255,.05);
+
+            font-size: 1.2rem;
+
+            flex-shrink: 0;
+
+            transition: var(--transition);
+        }
+
+        .card:hover .icon {
+            transform: scale(1.05);
+            color: var(--blue-hover);
+        }
+
+        .card span {
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .external {
+            opacity: .45;
+            font-size: .7rem;
+        }
+
+        /* blur card */
+
+        .blur-card::after {
+            content: "СКРЫТО";
+
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+
+            background: rgba(0,0,0,.55);
+
+            color: white;
+
+            font-size: 1rem;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-shadow: 0 0 10px rgba(255,255,255,.4);
+
+            transition: .35s ease;
+
+            z-index: 5;
+        }
+
+        .blur-card:hover::after {
+            opacity: 0;
+        }
+
+        /* center */
+
+        .avatar-wrapper {
+            display: flex;
+            justify-content: center;
+
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 100%;
+            max-width: 280px;
+            height: 130px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            border: 2px solid rgba(111, 118, 255, .2);
+
+            transition: var(--transition);
+
+            box-shadow:
+                0 0 25px rgba(98, 90, 255, .2);
+        }
+
+        .avatar:hover {
+            transform: scale(1.02);
+
+            border-color: rgba(111,118,255,.6);
+
+            box-shadow:
+                0 0 35px rgba(111,118,255,.4);
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .btn {
+            border: none;
+
+            cursor: pointer;
+
+            font-family: inherit;
+            font-size: .96rem;
+            font-weight: 700;
+
+            color: white;
+
+            text-decoration: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 16px;
+
+            border-radius: 18px;
+
+            transition: var(--transition);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #23364f,
+                    #172333
+                );
+
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2b4567,
+                    #1f3046
+                );
+        }
+
+        .btn:active {
+            transform: scale(.98);
+        }
+
+        .steam {
+            background:
+                linear-gradient(
+                    135deg,
+                    #1b2838,
+                    #171a21
+                );
+        }
+
+        .telegram {
+            background:
+                linear-gradient(
+                    135deg,
+                    #278bcf,
+                    #1f6ea5
+                );
+        }
+
+        .nickname {
+            text-align: center;
+
+            margin-top: 6px;
+
+            color: var(--muted);
+
+            font-size: .8rem;
+        }
+
+        /* sites */
+
+        .sites {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .future {
+            opacity: .55;
+            pointer-events: none;
+            filter: grayscale(.2);
+        }
+
+        /* bottom */
+
+        .bottom {
+            margin-top: 26px;
+
+            border-top: 1px solid rgba(255,255,255,.08);
+
+            padding-top: 24px;
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        /* toast */
+
+        .toast {
+            position: fixed;
+
+            left: 50%;
+            bottom: 25px;
+
+            transform: translateX(-50%);
+
+            background: rgba(17,24,39,.92);
+
+            border: 1px solid rgba(77,163,255,.25);
+
+            color: white;
+
+            padding: 14px 20px;
+
+            border-radius: 100px;
+
+            font-size: .9rem;
+            font-weight: 600;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: .2s ease;
+
+            z-index: 999;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        /* mobile */
+
+        @media (max-width: 1100px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
 
             body {
-                background: linear-gradient(135deg, #10141c 0%, #1a1f2b 100%);
-                font-family: 'Inter', sans-serif;
-                min-height: 100vh;
-                padding: 2rem 1.5rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                padding: 14px;
             }
 
-            /* главная карточка */
-            .main-container {
-                max-width: 1500px;
-                width: 100%;
-                background: rgba(22, 26, 35, 0.85);
-                backdrop-filter: blur(12px);
-                border-radius: 2rem;
-                box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(255,255,255,0.05);
-                padding: 2rem;
-                border: 1px solid rgba(255, 255, 255, 0.08);
+            .app {
+                padding: 16px;
+                border-radius: 24px;
             }
 
-            /* три колонки вдоль */
-            .columns-wrapper {
-                display: flex;
-                flex-wrap: nowrap;
-                gap: 1.8rem;
-                justify-content: center;
-                align-items: stretch;
+            .sites {
+                grid-template-columns: 1fr;
             }
 
-            /* левая и центральная колонки */
-            .col {
-                flex: 1;
-                min-width: 0;
-                background: rgba(15, 19, 26, 0.7);
-                border-radius: 1.5rem;
-                padding: 1.2rem 1.2rem 1.5rem;
-                backdrop-filter: blur(4px);
-                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-                border: 1px solid rgba(255, 255, 255, 0.05);
+            .bottom-grid {
+                grid-template-columns: 1fr;
             }
+        }
 
-            /* правая колонка (сайты) */
-            .col-sites {
-                flex: 1.2;
-                min-width: 0;
-                background: rgba(15, 19, 26, 0.7);
-                border-radius: 1.5rem;
-                padding: 1.2rem 1.2rem 1.5rem;
-                backdrop-filter: blur(4px);
-                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-                border: 1px solid rgba(255, 255, 255, 0.05);
-            }
+    </style>
+</head>
+<body>
 
-            /* заголовки колонок */
-            .col h3, .col-sites h3 {
-                font-size: 1.3rem;
-                font-weight: 700;
-                margin-bottom: 1.2rem;
-                display: flex;
-                align-items: center;
-                gap: 0.6rem;
-                color: #eef2ff;
-                border-left: 3px solid #3b82f6;
-                padding-left: 0.8rem;
-                letter-spacing: -0.2px;
-            }
+<div class="app">
 
-            .col h3 i, .col-sites h3 i {
-                color: #60a5fa;
-                font-size: 1.2rem;
-            }
+    <div class="grid">
 
-            /* список ссылок для левой колонки */
-            .link-list {
-                display: flex;
-                flex-direction: column;
-                gap: 0.85rem;
-            }
+        <!-- socials -->
 
-            .link-item {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                background: rgba(30, 35, 48, 0.8);
-                padding: 0.8rem 1rem;
-                border-radius: 1.2rem;
-                text-decoration: none;
-                color: #e2e8f0;
-                font-weight: 600;
-                transition: all 0.2s ease;
-                border: 1px solid rgba(255, 255, 255, 0.05);
-            }
+        <section class="panel">
 
-            .link-item:hover {
-                transform: translateX(6px);
-                border-color: #3b82f6;
-                background: #1e2a3e;
-                box-shadow: 0 8px 18px -8px rgba(0,0,0,0.4);
-                color: white;
-            }
-
-            .link-icon {
-                width: 42px;
-                height: 42px;
-                background: rgba(0, 0, 0, 0.35);
-                border-radius: 32px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.3rem;
-                transition: 0.2s;
-                color: #94a3b8;
-            }
-
-            .link-item:hover .link-icon {
-                background: #2d3a4e;
-                color: white;
-            }
-
-            .link-item span:last-of-type {
-                flex: 1;
-                font-size: 1rem;
-                font-weight: 600;
-            }
-
-            /* контейнер для моих ссылок */
-            .my-links-container {
-                display: flex;
-                flex-direction: column;
-                gap: 1.2rem;
-            }
-
-            /* разделитель с КРУГЛОЙ рамкой для картинки */
-            .divider-image {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 1rem 0;
-            }
-            .rounded-image {
-                width: 300px;
-                height: 120px;
-                border-radius: 1%;
-                object-fit: cover;
-                border: 3px solid #9193f5;
-                box-shadow: 0 0 12px rgba(72, 69, 248, 0.4);  
-                transition: all 0.25s ease;
-                background: #1e2a3e;
-            }
-            .rounded-image:hover {
-                transform: scale(1.05);
-                border-color: #a19ac7;
-                box-shadow: 0 0 18px rgba(87, 46, 235, 0.6);
-            }
-
-            /* кнопки в центральной колонке (мои ссылки) — УВЕЛИЧЕНЫ */
-            .action-btn {
-                background: #1f2a3e;
-                border: none;
-                padding: 1rem 1.2rem;
-                border-radius: 2rem;
-                font-weight: 700;
-                font-size: 1rem;
-                font-family: 'Inter', sans-serif;
-                color: #f0f4fa;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.8rem;
-                cursor: pointer;
-                transition: 0.2s;
-                box-shadow: 0 5px 0 #0b0f17;
-                transform: translateY(-2px);
-                border: 1px solid rgba(255,255,255,0.08);
-                width: 100%;
-            }
-
-            .action-btn:active {
-                transform: translateY(2px);
-                box-shadow: 0 1px 0 #0b0f17;
-            }
-
-            .action-btn.stream-btn {
-                background: linear-gradient(135deg, #1b2838, #171a21);
-                box-shadow: 0 5px 0 #0f1117;
-                border: 1px solid #2c3e4e;
-            }
-
-            .action-btn.stream-btn i {
-                color: #66c0f4;
-            }
-
-            .action-btn.stream-btn:hover {
-                background: linear-gradient(135deg, #2a3a4a, #1f2833);
-            }
-
-            .action-btn.tg-copy {
-                background: #2A6B8F;
-                box-shadow: 0 5px 0 #1a445d;
-            }
-
-            .action-btn.tg-copy:hover {
-                background: #3486b0;
-            }
-
-            .action-btn:first-child {
-                background: #2c3e50;
-            }
-
-            .action-btn:first-child:hover {
-                background: #3b5a78;
-            }
-
-            /* сетка сайтов (динамическая, подстраивается под количество) */
-            .sites-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.9rem;
-            }
-
-            .site-card {
-                display: flex;
-                align-items: center;
-                gap: 0.8rem;
-                background: rgba(30, 35, 48, 0.8);
-                padding: 0.7rem 0.9rem;
-                border-radius: 1rem;
-                text-decoration: none;
-                color: #e2e8f0;
-                font-weight: 600;
-                transition: all 0.2s ease;
-                border: 1px solid rgba(255, 255, 255, 0.05);
-            }
-
-            .site-card:hover {
-                transform: translateY(-2px);
-                border-color: #3b82f6;
-                background: #1e2a3e;
-                box-shadow: 0 6px 12px -6px rgba(0,0,0,0.4);
-                color: white;
-            }
-
-            .site-icon {
-                width: 36px;
-                height: 36px;
-                background: rgba(0, 0, 0, 0.35);
-                border-radius: 30px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.1rem;
-                color: #94a3b8;
-            }
-
-            .site-card:hover .site-icon {
-                background: #2d3a4e;
-                color: white;
-            }
-
-            .site-card span {
-                font-size: 0.9rem;
-                font-weight: 600;
-                flex: 1;
-            }
-
-            /* стиль для заглушек (будущие ссылки) */
-            .site-card.future-link {
-                opacity: 0.7;
-                cursor: default;
-                pointer-events: none;
-                filter: grayscale(0.2);
-            }
-            .site-card.future-link:hover {
-                transform: none;
-                border-color: rgba(255,255,255,0.05);
-                background: rgba(30,35,48,0.8);
-            }
-
-            /* уведомление */
-            .copy-toast {
-                position: fixed;
-                bottom: 25px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #1f2937;
-                color: white;
-                padding: 0.8rem 1.6rem;
-                border-radius: 60px;
-                font-size: 0.9rem;
-                font-weight: 600;
-                z-index: 1000;
-                opacity: 0;
-                transition: opacity 0.2s;
-                pointer-events: none;
-                backdrop-filter: blur(12px);
-                background: #111827e6;
-                border: 1px solid #3b82f670;
-            }
-
-            /* адаптив */
-            @media (max-width: 950px) {
-                .columns-wrapper {
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                }
-                .col, .col-sites {
-                    width: 100%;
-                }
-                .main-container {
-                    padding: 1.2rem;
-                }
-                .sites-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media (max-width: 480px) {
-                .sites-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            /* hover цвета для сайтов */
-            .site-card[data-brand="liss"]:hover .site-icon { color: #5fcb7d; }
-            .site-card[data-brand="zhabka"]:hover .site-icon { color: #8bc34a; }
-            .site-card[data-brand="casebattle"]:hover .site-icon { color: #ffb347; }
-            .site-card[data-brand="skinhouse"]:hover .site-icon { color: #9b87f5; }
-            .site-card[data-brand="bulldrop"]:hover .site-icon { color: #ff8c5a; }
-            .site-card[data-brand="skinbro"]:hover .site-icon { color: #4db8ff; }
-            .site-card[data-brand="pitukh"]:hover .site-icon { color: #f472b6; }
-            .site-card[data-brand="csfail"]:hover .site-icon { color: #ef4444; }
-            .site-card[data-brand="dinodrop"]:hover .site-icon { color: #facc15; }
-            
-            .link-item[data-brand="vk"]:hover .link-icon { color: #4c8eff; }
-            .link-item[data-brand="tg"]:hover .link-icon { color: #2fade7; }
-            .link-item[data-brand="twitch"]:hover .link-icon { color: #b86bff; }
-            .link-item[data-brand="yt"]:hover .link-icon { color: #ff4f4f; }
-        </style>
-    </head>
-    <body>
-    <div class="main-container">
-        <div class="columns-wrapper">
-            <!-- КОЛОНКА 1: Соцсети -->
-            <div class="col">
-                <h3><i class="fab fa-telegram"></i> Соцсети </h3>
-                <div class="link-list">
-                    <a href="https://web.telegram.org" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="tg">
-                        <div class="link-icon"><i class="fab fa-telegram-plane"></i></div>
-                        <span>Telegram</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://vk.com" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="vk">
-                        <div class="link-icon"><i class="fab fa-vk"></i></div>
-                        <span>ВКонтакте</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://twitch.tv" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="twitch">
-                        <div class="link-icon"><i class="fab fa-twitch"></i></div>
-                        <span>Twitch</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://youtube.com" class="link-item" target="_blank" rel="noopener noreferrer" data-brand="yt">
-                        <div class="link-icon"><i class="fab fa-youtube"></i></div>
-                        <span>YouTube</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem; opacity: 0.5;"></i>
-                    </a>
-                </div>
+            <div class="panel-title">
+                <i class="fab fa-telegram"></i>
+                <span>Соцсети</span>
             </div>
 
-            <!-- КОЛОНКА 2: Мои ссылки (кнопки + круглая картинка-разделитель) -->
-            <div class="col">
-                <h3><i class="fas fa-link"></i> Мои ссылки</h3>
+            <div class="list" id="socials"></div>
 
-                <!-- ОТСТУП С КРУГЛОЙ КАРТИНКОЙ -->
-                <div class="divider-image">
-                    <img src="https://media.tenor.com/sDBNEe2njQ8AAAAM/optimus-prime-forest-battle.gif" alt="avatar" class="rounded-image"
-                        onerror="this.onerror=null; this.src='https://placehold.co/200x200/2c3e50/60a5fa?text=★+LOGO+★';">
-                </div>
+        </section>
 
-                <div class="my-links-container">
-                    <!-- Кнопка "Трейд ссылка" -->
-                    <button class="action-btn" id="tradeCopyBtn">
-                        <i class="fas fa-exchange-alt"></i> Трейд ссылка
-                    </button>
+        <!-- center -->
 
-                    <!-- Кнопка "Стим" -->
-                    <a href="https://steamcommunity.com/profiles/76561199245492834" target="_blank" rel="noopener noreferrer" class="action-btn stream-btn" style="text-decoration: none;">
-                        <i class="fab fa-steam"></i> Стим
-                    </a>
-                    
-                    <!-- Кнопка "ТГ (копировать)" -->
-                    <button class="action-btn tg-copy" id="tgNickCopyBtn">
-                        <i class="fab fa-telegram"></i> ТГ (копировать)
-                    </button>
-                    
-                    <div style="font-size: 0.7rem; text-align: center; margin-top: 8px; color:#8aa9c9;">
-                        <i>zxc_myxa_pobedil79</i>
-                    </div>
-                </div>
+        <section class="panel">
+
+            <div class="panel-title">
+                <i class="fas fa-link"></i>
+                <span>Мои ссылки</span>
             </div>
 
-            <!-- КОЛОНКА 3: Сайты (расширенная сетка: добавлены Динодроп и 3 будущие кнопки) -->
-            <div class="col-sites">
-                <h3><i class="fas fa-globe"></i> Сайты</h3>
-                <div class="sites-grid">
-                    <!-- существующие 8 ссылок -->
-                    <a href="https://lis-skins.com/ru/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="liss">
-                        <div class="site-icon"><i class="fas fa-gem"></i></div>
-                        <span>Lisskins</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://jabka.gg/r/IdIoutqF26" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="zhabka">
-                        <div class="site-icon"><i class="fas fa-frog"></i></div>
-                        <span>Жабка скин</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://case-battle.red/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="casebattle">
-                        <div class="site-icon"><i class="fas fa-battle-net"></i></div>
-                        <span>Кейс батл</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://skinhouse.gg/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="skinhouse">
-                        <div class="site-icon"><i class="fas fa-home"></i></div>
-                        <span>Скин хаус</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://bulldrop.uz/ru" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="bulldrop">
-                        <div class="site-icon"><i class="fas fa-dice-d6"></i></div>
-                        <span>Булдроп</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://skinbro.ru/ru/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="skinbro">
-                        <div class="site-icon"><i class="fas fa-handshake"></i></div>
-                        <span>Скинбро</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://petuh.cc/nambawan" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="pitukh">
-                        <div class="site-icon"><i class="fas fa-crown"></i></div>
-                        <span>Питух клаб</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    <a href="https://10cs.fail/ru/" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="csfail">
-                        <div class="site-icon"><i class="fas fa-skull"></i></div>
-                        <span>КС Фейл</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    
-                    <!-- НОВЫЙ САЙТ: Динодроп -->
-                    <a href="https://dinodrop.net/ru" class="site-card" target="_blank" rel="noopener noreferrer" data-brand="dinodrop">
-                        <div class="site-icon"><i class="fas fa-dragon"></i></div>
-                        <span>Динодроп</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.5;"></i>
-                    </a>
-                    
-                    <!-- 3 БУДУЩИЕ КНОПКИ (заглушки, пока неактивны, но визуально отображаются) -->
-                    <div class="site-card future-link" data-brand="future1">
-                        <div class="site-icon"><i class="fas fa-clock"></i></div>
-                        <span>Будущий сайт 1</span>
-                        <i class="fas fa-hourglass-half" style="font-size: 0.6rem; opacity: 0.6;"></i>
-                    </div>
-                    <div class="site-card future-link" data-brand="future2">
-                        <div class="site-icon"><i class="fas fa-clock"></i></div>
-                        <span>Будущий сайт 2</span>
-                        <i class="fas fa-hourglass-half" style="font-size: 0.6rem; opacity: 0.6;"></i>
-                    </div>
-                    <div class="site-card future-link" data-brand="future3">
-                        <div class="site-icon"><i class="fas fa-clock"></i></div>
-                        <span>Будущий сайт 3</span>
-                        <i class="fas fa-hourglass-half" style="font-size: 0.6rem; opacity: 0.6;"></i>
-                    </div>
-                </div>
-                <!-- небольшой пояснение про будущие кнопки -->
-                <div style="font-size: 0.65rem; text-align: center; margin-top: 12px; color:#5f7f9e;">
-                    <i class="fas fa-hourglass-half"></i> серые кнопки — скоро появятся
-                </div>
+            <div class="avatar-wrapper">
+
+                <img
+                    class="avatar"
+                    src="https://media.tenor.com/sDBNEe2njQ8AAAAM/optimus-prime-forest-battle.gif"
+                    alt="avatar"
+                >
+
             </div>
-        </div>
+
+            <div class="buttons">
+
+                <button class="btn" id="tradeBtn">
+                    <i class="fas fa-exchange-alt"></i>
+                    Трейд ссылка
+                </button>
+
+                <a
+                    href="https://steamcommunity.com/profiles/76561199245492834"
+                    target="_blank"
+                    class="btn steam"
+                >
+                    <i class="fab fa-steam"></i>
+                    Steam
+                </a>
+
+
+                <button class="btn telegram" id="tgBtn">
+                    <i class="fab fa-telegram"></i>
+                    Telegram
+                </button>
+
+            </div>
+
+            <div class="nickname">
+                @Gorya4nik
+            </div>
+
+        </section>
+
+        <!-- sites -->
+
+        <section class="panel">
+
+            <div class="panel-title">
+                <i class="fas fa-globe"></i>
+                <span>Сайты</span>
+            </div>
+
+            <div class="sites" id="sites"></div>
+
+        </section>
+
     </div>
 
-    <div id="toastMessage" class="copy-toast">Скопировано!</div>
+    <!-- extras -->
 
-    <script>
-        (function() {
-            const TRADE_LINK = "https://steamcommunity.com/tradeoffer/new?partner=1285227106";
-            const TG_NICK = "@Gorya4nik";
+    <section class="bottom">
 
-            const tradeBtn = document.getElementById('tradeCopyBtn');
-            const tgNickBtn = document.getElementById('tgNickCopyBtn');
-            const toast = document.getElementById('toastMessage');
+        <div class="panel-title">
+            <i class="fas fa-layer-group"></i>
+            <span>Дополнительные сервисы</span>
+        </div>
 
-            let toastTimeout = null;
+        <div class="bottom-grid" id="extras"></div>
 
-            function showToast(message = "Скопировано!") {
-                if (toastTimeout) clearTimeout(toastTimeout);
-                toast.textContent = message;
-                toast.style.opacity = '1';
-                toastTimeout = setTimeout(() => {
-                    toast.style.opacity = '0';
-                }, 1800);
-            }
+    </section>
 
-            async function copyToClipboard(text, successMsg = "Скопировано!") {
-                try {
-                    await navigator.clipboard.writeText(text);
-                    showToast(successMsg);
-                } catch (err) {
-                    console.error("Ошибка копирования: ", err);
-                    const textarea = document.createElement('textarea');
-                    textarea.value = text;
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
-                    showToast(successMsg);
-                }
-            }
+</div>
 
-            if (tradeBtn) {
-                tradeBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    copyToClipboard(TRADE_LINK, "✅ Трейд ссылка скопирована!");
-                });
-            }
+<div class="toast" id="toast"></div>
 
-            if (tgNickBtn) {
-                tgNickBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    copyToClipboard(TG_NICK, "📋 @vladprokuratyra скопирован");
-                });
-            }
-        })();
-    </script>
-    </body>
-    </html>
+<script>
+
+    // =========================
+    // DATA
+    // =========================
+
+    const socials = [
+
+        {
+            name: "Telegram",
+            icon: "fab fa-telegram-plane",
+            url: "https://web.telegram.org"
+        },
+
+        {
+            name: "VK",
+            icon: "fab fa-vk",
+            url: "https://vk.com"
+        },
+
+        {
+            name: "Twitch",
+            icon: "fab fa-twitch",
+            url: "https://twitch.tv"
+        },
+
+        {
+            name: "YouTube",
+            icon: "fab fa-youtube",
+            url: "https://youtube.com"
+        }
+
+    ];
+
+    const sites = [
+
+        {
+            name: "Lisskins",
+            icon: "fas fa-gem",
+            url: "https://lis-skins.com/ru/"
+        },
+
+        {
+            name: "Жабка",
+            icon: "fas fa-frog",
+            url: "https://jabka.gg/r/IdIoutqF26"
+        },
+
+        {
+            name: "Case Battle",
+            icon: "fas fa-bolt",
+            url: "https://case-battle.red/"
+        },
+
+        {
+            name: "SkinHouse",
+            icon: "fas fa-home",
+            url: "https://skinhouse.gg/"
+        },
+
+        {
+            name: "Bulldrop",
+            icon: "fas fa-dice",
+            url: "https://bulldrop.uz/ru"
+        },
+
+        {
+            name: "SkinBro",
+            icon: "fas fa-handshake",
+            url: "https://skinbro.ru/ru/"
+        },
+
+        {
+            name: "Petuh Club",
+            icon: "fas fa-crown",
+            url: "https://petuh.cc/nambawan"
+        },
+
+        {
+            name: "CS Fail",
+            icon: "fas fa-skull",
+            url: "https://10cs.fail/ru/"
+        },
+
+        {
+            name: "DinoDrop",
+            icon: "fas fa-dragon",
+            url: "https://dinodrop.net/ru"
+        },
+
+        {
+            name: "Скоро...",
+            icon: "fas fa-clock",
+            future: true
+        }
+
+    ];
+
+    const extras = [
+
+        {
+            name: "Маркет КС",
+            icon: "fas fa-chart-line",
+            url: "https://market.csgo.com/ru/"
+        },
+
+        {
+            name: "DeepSeek",
+            icon: "fas fa-brain",
+            url: "https://chat.deepseek.com/"
+        },
+
+        {
+            name: "ChatGPT",
+            icon: "fas fa-robot",
+            url: "https://chatgpt.com/"
+        },
+
+        {
+            name: "1Win",
+            icon: "fas fa-trophy",
+            url: "https://1win.online/",
+            className: "blur-card"
+        }
+
+        
+
+    ];
+
+    // =========================
+    // RENDER
+    // =========================
+
+    function createCard(item) {
+
+        if (item.future) {
+
+            return `
+                <div class="card future">
+
+                    <div class="icon">
+                        <i class="${item.icon}"></i>
+                    </div>
+
+                    <span>${item.name}</span>
+
+                    <i class="fas fa-hourglass-half external"></i>
+
+                </div>
+            `;
+        }
+
+        return `
+            <a
+                href="${item.url}"
+                target="_blank"
+                class="card ${item.className || ""}"
+            >
+
+                <div class="icon">
+                    <i class="${item.icon}"></i>
+                </div>
+
+                <span>${item.name}</span>
+
+                <i class="fas fa-arrow-up-right-from-square external"></i>
+
+            </a>
+        `;
+    }
+
+    document.getElementById("socials").innerHTML =
+        socials.map(createCard).join("");
+
+    document.getElementById("sites").innerHTML =
+        sites.map(createCard).join("");
+
+    document.getElementById("extras").innerHTML =
+        extras.map(createCard).join("");
+
+    // =========================
+    // COPY
+    // =========================
+
+    
+    const TRADE_LINK =
+        "https://steamcommunity.com/tradeoffer/new?partner=1285227106";
+
+    const TG_NICK =
+        "@Gorya4nik";
+
+    const toast =
+        document.getElementById("toast");
+
+    function showToast(text) {
+
+        toast.textContent = text;
+
+        toast.classList.add("show");
+
+        clearTimeout(window.toastTimeout);
+
+        window.toastTimeout = setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 1800);
+    }
+
+    async function copy(text, message) {
+
+        try {
+
+            await navigator.clipboard.writeText(text);
+
+            showToast(message);
+
+        } catch {
+
+            const textarea =
+                document.createElement("textarea");
+
+            textarea.value = text;
+
+            document.body.appendChild(textarea);
+
+            textarea.select();
+
+            document.execCommand("copy");
+
+            textarea.remove();
+
+            showToast(message);
+        }
+    }
+
+    document
+        .getElementById("tradeBtn")
+        .addEventListener("click", () => {
+
+            copy(
+                TRADE_LINK,
+                "✅ Трейд ссылка скопирована"
+            );
+
+        });
+
+    document
+        .getElementById("tgBtn")
+        .addEventListener("click", () => {
+
+            copy(
+                TG_NICK,
+                "📋 Telegram скопирован"
+            );
+
+        });
+
+</script>
+
+</body>
+</html>
